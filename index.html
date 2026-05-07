@@ -3,46 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Shop</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Tech Rewards</title>
 
-<body>
+<style>
 
-<div class="header">
-<div class="logo">🔥 Tech Shop</div>
-<div class="subtitle">Mini App Telegram Premium</div>
-</div>
-
-<div class="banner">
-<h1>BOOST TON COMPTE</h1>
-<p>Produits instantanés • Livraison rapide • Support 24/7</p>
-<button>Commander</button>
-</div>
-
-<div class="section-title">
-🛍 Produits
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200&auto=format&fit=crop">
-<div class="product-title">Pack Premium</div>
-<div class="stock">✔ 11593 en stock</div>
-<div class="price">2€</div>
-<button class="buy" onclick="buy('Pack Premium')">Commander</button>
-</div>
-
-<div class="bottom-nav">
-<div class="nav-item">🏠<br>Menu</div>
-<div class="nav-item">🧾<br>Tickets</div>
-<div class="nav-item">⚡<br>Commander</div>
-<div class="nav-item">👤<br>Profil</div>
-</div>
-
-<script src="app.js"></script>
-
-</body>
-</html>
 *{
 margin:0;
 padding:0;
@@ -51,95 +15,125 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#0a0a0a;
+background:#090909;
 color:white;
-padding-bottom:100px;
+padding-bottom:120px;
 }
 
 .header{
-background:linear-gradient(180deg,#d00000,#700000);
-padding:30px 20px;
-border-radius:0 0 30px 30px;
+background:linear-gradient(180deg,#ff0000,#700000);
+padding:35px 20px;
+border-radius:0 0 35px 35px;
+text-align:center;
 }
 
-.logo{
-font-size:34px;
+.header h1{
+font-size:42px;
 font-weight:bold;
 }
 
-.subtitle{
+.header p{
 margin-top:10px;
-font-size:16px;
 opacity:.8;
 }
 
 .banner{
 margin:20px;
-background:#c30000;
+background:linear-gradient(135deg,#ff0000,#300000);
 padding:25px;
-border-radius:25px;
+border-radius:30px;
+box-shadow:0 0 25px rgba(255,0,0,.3);
 }
 
-.banner h1{
-font-size:40px;
+.banner h2{
+font-size:38px;
+line-height:1;
 }
 
-.banner button{
-margin-top:20px;
-padding:14px 20px;
-background:#ffd000;
-border:none;
-border-radius:15px;
-font-weight:bold;
+.banner p{
+margin-top:15px;
+font-size:15px;
+opacity:.9;
 }
 
-.section-title{
+.section{
 padding:20px;
-font-size:25px;
+font-size:28px;
 font-weight:bold;
 }
 
-.product{
-background:#171717;
+.card{
+background:#141414;
 margin:15px 20px;
-border-radius:20px;
-padding:20px;
-border:1px solid #2c2c2c;
+border-radius:25px;
+overflow:hidden;
+border:1px solid #2d2d2d;
+box-shadow:0 0 20px rgba(0,0,0,.4);
 }
 
-.product img{
+.card img{
 width:100%;
-border-radius:15px;
-margin-bottom:15px;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:20px;
 }
 
 .product-title{
-font-size:22px;
+font-size:26px;
 font-weight:bold;
 }
 
 .stock{
-margin-top:8px;
-color:#00ff7b;
+margin-top:10px;
+color:#00ff84;
+font-size:15px;
 }
 
 .price{
 margin-top:15px;
-font-size:35px;
+font-size:38px;
 font-weight:bold;
 color:#ffd000;
 }
 
 .buy{
 width:100%;
-margin-top:15px;
-padding:14px;
-background:#d00000;
-color:white;
+margin-top:18px;
+padding:15px;
 border:none;
-border-radius:15px;
-font-size:16px;
+border-radius:18px;
+background:#ff0000;
+color:white;
+font-size:17px;
 font-weight:bold;
+}
+
+.points-box{
+margin:20px;
+background:#111;
+border-radius:25px;
+padding:20px;
+border:1px solid #2b2b2b;
+}
+
+.points-box h3{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid #222;
+font-size:18px;
+}
+
+.row:last-child{
+border:none;
 }
 
 .bottom-nav{
@@ -151,13 +145,161 @@ background:#111;
 display:flex;
 justify-content:space-around;
 padding:15px;
-border-top:1px solid #333;
+border-top:1px solid #222;
 }
 
 .nav-item{
 text-align:center;
 font-size:14px;
 }
-function buy(product){
-  alert("Commande envoyée : " + product + " ✅");
+
+button{
+cursor:pointer;
 }
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>🔥 TECH REWARDS</h1>
+<p>Programme fidélité premium</p>
+</div>
+
+<div class="banner">
+<h2>BOOST TON COMPTE</h2>
+<p>Récompenses • Livraison rapide • Support 24/7</p>
+</div>
+
+<div class="section">
+🏆 Barème Points
+</div>
+
+<div class="points-box">
+
+<h3>💳 Tarifs</h3>
+
+<div class="row">
+<span>75-99 crédits</span>
+<span>5,50€</span>
+</div>
+
+<div class="row">
+<span>100-124 crédits</span>
+<span>6,50€</span>
+</div>
+
+<div class="row">
+<span>125-149 crédits</span>
+<span>7,50€</span>
+</div>
+
+<div class="row">
+<span>150-174 crédits</span>
+<span>8,50€</span>
+</div>
+
+<div class="row">
+<span>175-199 crédits</span>
+<span>10,50€</span>
+</div>
+
+<div class="row">
+<span>200-249 crédits</span>
+<span>12,50€</span>
+</div>
+
+<div class="row">
+<span>250-299 crédits</span>
+<span>14,50€</span>
+</div>
+
+</div>
+
+<div class="section">
+🛍 Produits
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="product-title">
+Pack Premium
+</div>
+
+<div class="stock">
+✔ Disponible immédiatement
+</div>
+
+<div class="price">
+5,50€
+</div>
+
+<button class="buy" onclick="buy('Pack Premium')">
+Commander
+</button>
+
+</div>
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<div class="product-title">
+Pack VIP
+</div>
+
+<div class="stock">
+✔ Livraison instantanée
+</div>
+
+<div class="price">
+12,50€
+</div>
+
+<button class="buy" onclick="buy('Pack VIP')">
+Commander
+</button>
+
+</div>
+</div>
+
+<div class="bottom-nav">
+
+<div class="nav-item">
+🏠<br>Menu
+</div>
+
+<div class="nav-item">
+🧾<br>Tickets
+</div>
+
+<div class="nav-item">
+⚡<br>Commander
+</div>
+
+<div class="nav-item">
+👤<br>Profil
+</div>
+
+</div>
+
+<script>
+
+function buy(product){
+
+alert("Commande envoyée : " + product + " ✅");
+
+}
+
+</script>
+
+</body>
+</html>
