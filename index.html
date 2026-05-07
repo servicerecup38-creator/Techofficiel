@@ -1,72 +1,48 @@
-from pathlib import Path
-from zipfile import ZipFile
-import textwrap
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-base = Path("/mnt/data/github_telegram_shop")
-(base / "public").mkdir(parents=True, exist_ok=True)
+<body>
 
-files = {
-    "package.json": """
-{
-  "name": "telegram-mini-shop",
-  "version": "1.0.0",
-  "description": "Telegram Mini Shop",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2",
-    "telegraf": "^4.16.3"
-  }
-}
-""",
-    "server.js": """
-const express = require('express');
-const path = require('path');
-require('./telegramBot');
+<div class="header">
+<div class="logo">🔥 Tech Shop</div>
+<div class="subtitle">Mini App Telegram Premium</div>
+</div>
 
-const app = express();
+<div class="banner">
+<h1>BOOST TON COMPTE</h1>
+<p>Produits instantanés • Livraison rapide • Support 24/7</p>
+<button>Commander</button>
+</div>
 
-app.use(express.static('public'));
+<div class="section-title">
+🛍 Produits
+</div>
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+<div class="product">
+<img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200&auto=format&fit=crop">
+<div class="product-title">Pack Premium</div>
+<div class="stock">✔ 11593 en stock</div>
+<div class="price">2€</div>
+<button class="buy" onclick="buy('Pack Premium')">Commander</button>
+</div>
 
-const PORT = process.env.PORT || 3000;
+<div class="bottom-nav">
+<div class="nav-item">🏠<br>Menu</div>
+<div class="nav-item">🧾<br>Tickets</div>
+<div class="nav-item">⚡<br>Commander</div>
+<div class="nav-item">👤<br>Profil</div>
+</div>
 
-app.listen(PORT, () => {
-  console.log(`Server online on port ${PORT}`);
-});
-""",
-    "telegramBot.js": """
-const { Telegraf } = require('telegraf');
+<script src="app.js"></script>
 
-const bot = new Telegraf('PUT_YOUR_BOT_TOKEN');
-
-bot.start((ctx) => {
-  ctx.reply('🔥 Bienvenue sur Tech Shop', {
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: '🚀 Ouvrir la boutique',
-            web_app: {
-              url: 'https://YOUR_SITE_URL.com'
-            }
-          }
-        ]
-      ]
-    }
-  });
-});
-
-bot.launch();
-
-console.log('Telegram Bot Online');
-""",
-    "public/style.css": """
+</body>
+</html>
 *{
 margin:0;
 padding:0;
@@ -182,102 +158,6 @@ border-top:1px solid #333;
 text-align:center;
 font-size:14px;
 }
-""",
-    "public/app.js": """
 function buy(product){
-  alert('Commande envoyée : ' + product + ' ✅');
+  alert("Commande envoyée : " + product + " ✅");
 }
-""",
-    "public/index.html": """
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Shop</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<div class="header">
-<div class="logo">🔥 Tech Shop</div>
-<div class="subtitle">Mini App Telegram Premium</div>
-</div>
-
-<div class="banner">
-<h1>BOOST TON COMPTE</h1>
-<p>Produits instantanés • Livraison rapide • Support 24/7</p>
-<button>Commander</button>
-</div>
-
-<div class="section-title">
-🛍 Produits
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?q=80&w=1200&auto=format&fit=crop" />
-<div class="product-title">Pack Premium</div>
-<div class="stock">✔ 11593 en stock</div>
-<div class="price">2€</div>
-<button class="buy" onclick="buy('Pack Premium')">Commander</button>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" />
-<div class="product-title">Pack VIP</div>
-<div class="stock">✔ 8421 en stock</div>
-<div class="price">5€</div>
-<button class="buy" onclick="buy('Pack VIP')">Commander</button>
-</div>
-
-<div class="bottom-nav">
-<div class="nav-item">🏠<br>Menu</div>
-<div class="nav-item">🧾<br>Tickets</div>
-<div class="nav-item">⚡<br>Commander</div>
-<div class="nav-item">👤<br>Profil</div>
-</div>
-
-<script src="app.js"></script>
-
-</body>
-</html>
-""",
-    "README.md": """
-# Telegram Mini Shop
-
-## Installation
-
-```bash
-npm install
-npm start
-```
-
-## Setup
-
-1. Put your Telegram Bot token in:
-telegramBot.js
-
-2. Put your website URL in:
-telegramBot.js
-
-## Deploy
-- Render
-- Railway
-- Replit
-- Vercel
-"""
-}
-
-for filename, content in files.items():
-    path = base / filename
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(textwrap.dedent(content), encoding="utf-8")
-
-zip_path = "/mnt/data/github_telegram_shop.zip"
-
-with ZipFile(zip_path, "w") as zipf:
-    for file in base.rglob("*"):
-        zipf.write(file, file.relative_to(base))
-
-print("ZIP CREATED:", zip_path)
