@@ -19,7 +19,7 @@ inline_keyboard: [
 [
 {
 text: '🛒 OUVRIR LA BOUTIQUE',
-url: 'https://servicerecup38-creator.github.io'
+url: 'https://servicerecup38-creator.github.io/Techofficiel/'
 }
 ],
 [
