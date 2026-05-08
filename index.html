@@ -438,10 +438,29 @@ header{position:sticky;top:0;z-index:200;background:rgba(14,5,0,.97);backdrop-fi
   </button>
 </a>
 
-    <div class="montant-label">MONTANT ENVOYÉ (€)</div>
-    <input class="montant-input" type="number" placeholder="10" id="montant-envoye" min="1">
-    <button class="send-btn" onclick="envoyerPreuve()">📤 ENVOYER LA PREUVE</button>
-  </div>
+    <div class="proof-box">
+
+  <input 
+    class="montant-input" 
+    type="number" 
+    placeholder="10"
+    id="montant-envoye"
+    min="1"
+  >
+
+  <label class="upload-zone">
+    <input type="file" id="proof-file" hidden>
+    
+    <div class="upload-content">
+      📸
+      <span>Upload ton screenshot PayPal</span>
+    </div>
+  </label>
+
+  <button class="send-btn" onclick="envoyerPreuve()">
+    📩 ENVOYER POUR VALIDATION
+  </button>
+
 </div>
 
 <!-- ═══ PAGE PROFIL ═══ -->
