@@ -25,45 +25,12 @@
   --text3:#7a4a28;
   --border:rgba(245,184,0,.18);
 }
-html,body{
-  height:100%;
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Nunito',sans-serif;
-  overflow-x:hidden;
-}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;overflow-x:hidden}
+body{padding-bottom:72px}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:4px}
 
-body{
-  padding-bottom:0;
-}
-
-/* FIX TELEGRAM / IPHONE */
-.page{
-  min-height:100vh;
-  padding-bottom:120px;
-}
-
-#page-caisse{
-  padding-bottom:160px;
-}
-
-.proof-box{
-  margin-bottom:120px;
-  padding-bottom:40px;
-}
-
-.bot-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:9999;
-  padding-bottom:calc(6px + env(safe-area-inset-bottom));
-}
-
-header{
-  z-index:9998;
-}
 /* ── LOADER ── */
 #loader{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .5s}
 #loader.hide{opacity:0;pointer-events:none}
@@ -322,41 +289,6 @@ header{position:sticky;top:0;z-index:200;background:rgba(14,5,0,.97);backdrop-fi
 /* ══════════ TOAST ══════════ */
 #toast{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-14px);background:linear-gradient(135deg,#200d03,#160800);border:1.5px solid rgba(245,184,0,.25);border-radius:12px;padding:10px 18px;font-size:12px;font-weight:700;color:var(--text2);z-index:700;opacity:0;transition:.28s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.5);pointer-events:none}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-
-.upload-zone{
-  width:100%;
-  min-height:120px;
-  border:2px dashed rgba(245,184,0,.35);
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:16px;
-  background:rgba(255,255,255,.03);
-  cursor:pointer;
-  transition:.2s;
-}
-
-.upload-zone:active{
-  transform:scale(.98);
-}
-
-.upload-content{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  color:var(--text2);
-  font-size:13px;
-  font-weight:700;
-  text-align:center;
-}
-
-.upload-content span{
-  max-width:180px;
-  line-height:1.4;
-}
 </style>
 </head>
 <body>
