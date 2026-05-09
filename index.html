@@ -783,27 +783,7 @@ function activerPromo() {
   } else {
     showToast('❌ Code invalide ou expiré');
   }
-function envoyerPreuve() {
-
-  var montant = document.getElementById('montant-envoye').value;
-
-  if (!montant || parseFloat(montant) <= 0) {
-
-    showToast('⚠️ Saisis un montant valide !');
-
-    return;
-
-  }
-
-  showToast('📤 Redirection vers Telegram...');
-
-  setTimeout(function () {
-
-    window.open('https://t.me/tech_officiel', '_blank');
-
-  }, 800);
-
-}
+javascript id="d9k31x" function envoyerPreuve() {   var montant = document.getElementById('montant-envoye').value;    if (!montant || parseFloat(montant) <= 0) {     showToast('⚠️ Saisis un montant valide !');     return;   }    showToast('📤 Ouverture Telegram...');    var message = encodeURIComponent(     "Bonjour, je viens d'envoyer " + montant + "€.\nVoici ma preuve de paiement :"   );    setTimeout(function () {     window.open(       'https://t.me/tech_officiel?text=' + message,       '_blank'     );   }, 800); } 
 function updateCredit() {
   var formatted = credit.toFixed(2) + '€';
   document.getElementById('header-credit').textContent = formatted;
