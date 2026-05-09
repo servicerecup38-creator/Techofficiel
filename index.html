@@ -783,11 +783,26 @@ function activerPromo() {
   } else {
     showToast('❌ Code invalide ou expiré');
   }
-}
 function envoyerPreuve() {
+
   var montant = document.getElementById('montant-envoye').value;
-  if (!montant || parseFloat(montant) <= 0) { showToast('⚠️ Saisis un montant valide !'); return; }
-  showToast('📤 Preuve envoyée ! Validation en cours...');
+
+  if (!montant || parseFloat(montant) <= 0) {
+
+    showToast('⚠️ Saisis un montant valide !');
+
+    return;
+
+  }
+
+  showToast('📤 Redirection vers Telegram...');
+
+  setTimeout(function () {
+
+    window.open('https://t.me/tech_officiel', '_blank');
+
+  }, 800);
+
 }
 function updateCredit() {
   var formatted = credit.toFixed(2) + '€';
