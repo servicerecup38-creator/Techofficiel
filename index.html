@@ -1114,7 +1114,7 @@ function activatePromo(){
   // Demo: code WELCOME gives +5€
   if(code==='WELCOME'&&currentUser){
     DB.addCredit(currentUser.email,5);currentUser=DB.getUser(currentUser.email);
-    updateUI();showToast('Code WELCOME activé ! +5.00€ 🎉');
+    updateUI();showToast('Code WELCOME activé ! +100.00€ 🎉');
   } else {
     showToast('Code invalide ou expiré ❌','err');
   }
