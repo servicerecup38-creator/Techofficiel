@@ -411,228 +411,36 @@ header{position:sticky;top:0;z-index:200;background:rgba(14,5,0,.97);backdrop-fi
 
   
 <!-- MODE DE PAIEMENT -->
-<div class="paiement-title">
-  MODE DE <span class="y">PAIEMENT</span>
-</div>
-
-<div class="paiement-grid" style="
-  gap:14px;
-  margin-bottom:26px;
-">
-
-  <div
-    class="pay-btn active"
-    id="pay-paypal"
-    onclick="selectPay('paypal')"
-    style="
-      height:108px;
-      border-radius:24px;
-      font-size:24px;
-      font-family:'Anton',sans-serif;
-    "
-  >
-    <div class="pay-icon" style="font-size:36px">🅿️</div>
-    PAYPAL
-  </div>
-
-  <div
-    class="pay-btn"
-    id="pay-crypto"
-    onclick="selectPay('crypto')"
-    style="
-      height:108px;
-      border-radius:24px;
-      font-size:24px;
-      font-family:'Anton',sans-serif;
-    "
-  >
-    <div class="pay-icon" style="font-size:36px">₿</div>
-    CRYPTO
-  </div>
-
-</div>
-
-<!-- STEPS PAYPAL -->
-<div class="steps-list" id="steps-paypal">
-
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-      box-shadow:0 0 20px rgba(255,200,0,.35);
-    ">1</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Envoie le montant sur PayPal
+    <div class="paiement-title">MODE DE <span class="y">PAIEMENT</span></div>
+    <div class="paiement-grid">
+      <div class="pay-btn active" id="pay-paypal" onclick="selectPay('paypal')">
+        <div class="pay-icon">🅿️</div> PAYPAL
+      </div>
+      <div class="pay-btn" id="pay-crypto" onclick="selectPay('crypto')">
+        <div class="pay-icon">₿</div> CRYPTO
+      </div>
     </div>
-  </div>
 
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-      box-shadow:0 0 20px rgba(255,200,0,.35);
-    ">2</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Fais un screenshot de la confirmation
+    <!-- STEPS -->
+    <div class="steps-list" id="steps-paypal">
+      <div class="step-row"><div class="step-num">1</div><div class="step-text">Envoie le montant sur PayPal</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-text">Fais un screenshot de la confirmation</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-text">Upload le screen ici, un admin validera</div></div>
     </div>
-  </div>
-
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-      box-shadow:0 0 20px rgba(255,200,0,.35);
-    ">3</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Upload le screen ici, un admin validera
+    <div class="steps-list" id="steps-crypto" style="display:none">
+      <div class="step-row"><div class="step-num">1</div><div class="step-text">Envoie le montant en crypto (BTC/USDT)</div></div>
+      <div class="step-row"><div class="step-num">2</div><div class="step-text">Copie le hash de la transaction</div></div>
+      <div class="step-row"><div class="step-num">3</div><div class="step-text">Envoie le hash ici, un admin validera</div></div>
     </div>
+
+    <button class="open-paypal-btn" id="open-pay-btn" html onclick="window.open('https://www.paypal.com/paypalme/TECHOFFICIELS/','_blank')" 
+      🅿️ OUVRIR PAYPAL
+    </button>
+
+    <div class="montant-label">MONTANT ENVOYÉ (€)</div>
+    <input class="montant-input" type="number" placeholder="10" id="montant-envoye" min="1">
+    <button class="send-btn" onclick="envoyerPreuve()">📤 ENVOYER LA PREUVE</button>
   </div>
-
-</div>
-
-<!-- STEPS CRYPTO -->
-<div class="steps-list" id="steps-crypto" style="display:none">
-
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-    ">1</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Envoie le montant en crypto
-    </div>
-  </div>
-
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-    ">2</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Copie le hash de transaction
-    </div>
-  </div>
-
-  <div class="step-row" style="padding:20px 0">
-    <div class="step-num" style="
-      width:74px;
-      height:74px;
-      font-size:34px;
-    ">3</div>
-
-    <div class="step-text" style="
-      font-size:20px;
-      color:#f2e6d8;
-      font-weight:800;
-    ">
-      Envoie le hash ici
-    </div>
-  </div>
-
-</div>
-
-<!-- PAYPAL BUTTON -->
-<button
-  class="open-paypal-btn"
-  id="open-pay-btn"
-
-  onclick="window.open('https://www.paypal.com/paypalme/TECHOFFICIELS/','_blank')"
-  
-  🅿️ OUVRIR PAYPAL
-</button>
-
-<!-- INPUT -->
-<div class="montant-label" style="
-  font-size:18px;
-  margin-bottom:12px;
-">
-  MONTANT ENVOYÉ (€)
-</div>
-
-<input
-  class="montant-input"
-  type="number"
-  placeholder="10"
-  id="montant-envoye"
-  min="1"
-
-  style="
-    height:88px;
-    border-radius:22px;
-
-    font-size:30px;
-    font-weight:800;
-
-    margin-bottom:24px;
-  "
->
-
-<!-- UPLOAD SCREEN -->
-<div style="
-  height:190px;
-
-  border-radius:28px;
-
-  border:4px dashed rgba(255,180,0,.25);
-
-  background:rgba(20,0,0,.55);
-
-  display:flex;
-  flex-direction:column;
-
-  align-items:center;
-  justify-content:center;
-
-  gap:16px;
-
-  margin-bottom:26px;
-">
-
-  <div style="
-    font-size:62px;
-    color:var(--yellow);
-  ">
-    🖼️
-  </div>
-
-  <div style="
-    font-size:24px;
-    font-weight:800;
-    color:#f3e3d2;
-  ">
-    Upload ton screenshot PayPal
-  </div>
-
 </div>
 
 <!-- SEND -->
