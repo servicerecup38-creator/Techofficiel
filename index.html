@@ -508,6 +508,47 @@ textarea.field-input{min-height:90px;resize:none;}
   border-top-color:white;border-radius:50%;animation:spin .7s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
+<!-- POPUP IMAGE -->
+<div id="fidelite-modal" class="modal-bg">
+
+  <div class="modal" style="
+    max-width:95%;
+    width:95%;
+    padding:10px;
+    background:#111;
+    border:2px solid #FFB800;
+  ">
+
+    <img
+      src="https://cdn.phototourl.com/free/2026-05-09-aa7bcb8a-d9a5-47af-b3e0-6255e273191e.jpg"
+      style="
+        width:100%;
+        border-radius:12px;
+        display:block;
+      "
+    >
+
+    <button
+      onclick="closeFidelite()"
+      style="
+        margin-top:12px;
+        width:100%;
+        background:linear-gradient(135deg,#FFB800,#FF9500);
+        color:#5B0000;
+        border:none;
+        padding:14px;
+        border-radius:12px;
+        font-weight:900;
+        font-family:'Barlow Condensed',sans-serif;
+        cursor:pointer;
+      "
+    >
+      FERMER
+    </button>
+
+  </div>
+
+</div>
 </style>
 </head>
 <body>
@@ -585,7 +626,7 @@ textarea.field-input{min-height:90px;resize:none;}
       <div class="hero-tag">Support 24/7</div>
     </div>
   </div>
-  <div class="boost" onclick="showRegles()">
+  <div class="boost" onclick="openFidelite()">
     <div>
       <div class="boost-badge">MCDO+ RÉCOMPENSES</div>
       <div class="boost-title">BOOST TON COMPTE FIDÉLITÉ</div>
@@ -1163,6 +1204,13 @@ function showToast(msg,type=''){
   // No session — show auth
   document.getElementById('auth-screen').style.display='flex';
 })();
+  function openFidelite() {
+  document.getElementById('fidelite-modal').style.display = 'flex';
+}
+
+function closeFidelite() {
+  document.getElementById('fidelite-modal').style.display = 'none';
+}
 </script>
 </body>
 </html>
