@@ -603,41 +603,20 @@ textarea.field-input{min-height:90px;resize:none;}
 <!-- ─── PAGE: TICKETS / ORDERS ─── -->
 <div id="page-ticket" class="page">
   <div class="ticket-page">
+
     <div class="ticket-hdr">
       <div class="ticket-icon">📋</div>
+
       <div class="ticket-hdr-t">
         <h2>MES COMMANDES</h2>
         <p>Historique de tes achats</p>
       </div>
     </div>
+
     <div id="orders-list"></div>
 
-    <div style="height:24px;"></div>
-    <div class="ticket-hdr">
-      <div class="ticket-icon">💬</div>
-      <div class="ticket-hdr-t">
-        <h2>SERVICE CLIENT</h2>
-        <p>Un souci ? Le manager te répond très vite.</p>
-      </div>
-    </div>
-    <div class="inner-box">
-      <div class="field-label">SUJET</div>
-      <div class="subjects">
-        <button class="subj-btn" onclick="selSubj(this)">Problème de paiement</button>
-        <button class="subj-btn" onclick="selSubj(this)">Commande non reçue</button>
-        <button class="subj-btn" onclick="selSubj(this)">Bug / Erreur</button>
-        <button class="subj-btn" onclick="selSubj(this)">Question</button>
-        <button class="subj-btn" onclick="selSubj(this)">Autre</button>
-      </div>
-      <div class="field-label">MESSAGE</div>
-      <textarea class="field-input" id="ticket-msg" placeholder="Décris ton problème en détail..."></textarea>
-      <button class="send-ticket-btn" onclick="sendTicket()">
-        <span>✈</span> ENVOYER LE TICKET
-      </button>
-    </div>
   </div>
 </div>
-
 <!-- ─── PAGE: CAISSE ─── -->
 <div id="page-caisse" class="page">
   <div class="caisse-card">
